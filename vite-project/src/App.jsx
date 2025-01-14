@@ -1,33 +1,77 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0)
 
+  const myName = "Noel Proctor";
+  const profession = "Software Developer";
+  const projects = [
+    {
+      title: "Project One",
+      description: "A web application built using React and Node.js",
+      link: "#"
+    },
+
+    {
+      title: "Project Two",
+      description: "An Ecommerce platform built using Spring Boot",
+      link: "#"
+    }
+  ]
+
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='App'>
+        {/* Header section */}
+        <header className='header'>
+          <h1>{myName}</h1>
+          <h2>{profession}</h2>
+          <nav>
+            <a href="about">About</a>
+            <a href="projects">Projects</a>
+            <a href="contact">Contact</a>
+          </nav>
+        </header>
+
+
+        {/* About section */}
+        <section id='about' className='about-section'>
+          <h2>About Me</h2>
+          <p>This is some information about me</p>
+
+        </section>
+
+        {/* Projects section */}
+        <section id='projects' className="project-section">
+          <h2>Projects</h2>
+          <p>This is some information about my projects</p>
+
+          <div className="project-list">
+            {projects.map((project, index) => (
+              <div key={index} className='project-item'>
+                <h3>{project.title}</h3>
+                <h3>{project.description}</h3>
+                <a href={project.link}>Go to project</a>
+              </div>
+            ))}
+          </div>
+
+        </section>
+
+
+        {/* Contact section */}
+        <section id='contact' className='contact-section'>
+          <h3>Contact Me</h3>
+          <p>This is how you can contact me</p>
+        </section>
+
+        <footer className="footer">
+          <p>2025 All Rights Reserved To Homer Simpson</p>
+
+        </footer>
+
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
