@@ -6,6 +6,7 @@ import Footer from './Components/Common/Footer'
 import About from './Components/About/About'
 import ProjectList from './Components/Projects/ProjectList'
 import ProfileImageUploader from './Components/Profile/ProfileImageUploader'
+import Form from './Components/Form/Form'
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
       {/* Projects section */}
       <ProjectList></ProjectList>
       <ProfileImageUploader></ProfileImageUploader>
+      <Form></Form>
       {/* Contact section */}
       <ContactMe></ContactMe>
       {/* Footer Section */}

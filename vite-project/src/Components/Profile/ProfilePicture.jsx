@@ -1,4 +1,4 @@
-import React from 'react'
+
 import './ProfilePicture.css'
 import PropTypes from 'prop-types'
 import default_image from '../Assets/defaultProfileImage.jpg'
