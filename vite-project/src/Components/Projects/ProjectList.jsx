@@ -1,7 +1,7 @@
+import PropTypes from 'prop-types';
 
 
-
-function ProjectsList() {
+function ProjectsList({ colour }) {
 
     const projects = [
         {
@@ -18,7 +18,7 @@ function ProjectsList() {
     ]
 
     return (
-        <section id='projects' className="project-section">
+        <section id='projects' className="project-section" style={{ background: colour }}>
             <h2>Projects</h2>
             <p>This is some information about my projects</p>
 
@@ -37,5 +37,9 @@ function ProjectsList() {
     )
 
 };
+
+ProjectsList.propTypes = {
+    colour: PropTypes.string.isRequired
+}
 
 export default ProjectsList

@@ -1,9 +1,10 @@
 
+import PropTypes from 'prop-types';
 
-function Footer() {
+function Footer({ colour }) {
     return (
 
-        <footer className="footer">
+        <footer className="footer" style={{ background: colour }}>
             <p>2025 All Rights Reserved To Homer Simpson</p>
 
         </footer>
@@ -11,4 +12,8 @@ function Footer() {
     );
 }
 
-export default Footer
+Footer.propTypes = {
+    colour: PropTypes.string.isRequired,
+};
+
+export default Footer;

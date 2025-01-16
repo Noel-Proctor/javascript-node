@@ -7,26 +7,28 @@ import About from './Components/About/About'
 import ProjectList from './Components/Projects/ProjectList'
 import ProfileImageUploader from './Components/Profile/ProfileImageUploader'
 import Form from './Components/Form/Form'
+import ColourPicker from './Components/ColourPicker/ColourPicker'
 
 
 function App() {
 
-
+  const [colourScheme, setColourScheme] = useState(['#FF8000', '#4C1F7A', '#219B9D', '#EEEEEE']);
 
   return (
     <div className='App'>
       {/* Header Section */}
-      <Header></Header>
+      <Header colour={colourScheme[0]}></Header>
       {/* About section */}
-      <About></About>
+      <About colour={colourScheme[1]}></About>
+      <ColourPicker setColourScheme={setColourScheme}></ColourPicker>
       {/* Projects section */}
-      <ProjectList></ProjectList>
-      <ProfileImageUploader></ProfileImageUploader>
+      <ProjectList colour={colourScheme[2]}></ProjectList>
+      <ProfileImageUploader colour={colourScheme[2]}></ProfileImageUploader>
       <Form></Form>
       {/* Contact section */}
-      <ContactMe></ContactMe>
+      <ContactMe colour={colourScheme[3]}></ContactMe>
       {/* Footer Section */}
-      <Footer></Footer>
+      <Footer colour={colourScheme[0]}></Footer>
     </div>
 
   );

@@ -1,9 +1,10 @@
 import { useState, useCallback } from "react";
+import PropTypes from 'prop-types';
 import { useDropzone } from 'react-dropzone'
 import { ProfilePicture } from "./ProfilePicture";
 import default_image from '../Assets/defaultProfileImage.jpg'
 
-function ProfileImageUploader() {
+function ProfileImageUploader({ colour }) {
 
     const [imageUrl, setImageUrl] = useState(null);
 
@@ -42,11 +43,18 @@ function ProfileImageUploader() {
     const displayedImageUrl = imageUrl || default_image;
 
     return (
-        <div {...getRootProps()} style={dropzoneStyle}>
-            <input {...getInputProps()} />
-            <ProfilePicture src={displayedImageUrl}></ProfilePicture>
+        <div style={{ backgroundColor: colour }}>
+            <div {...getRootProps()} style={dropzoneStyle}>
+                <input {...getInputProps()} />
+                <ProfilePicture src={displayedImageUrl}></ProfilePicture>
+            </div>
         </div>
+
     )
 }
 
-export default ProfileImageUploader
+ProfileImageUploader.propTypes = {
+    colour: PropTypes.string.isRequired,
+};
+
+export default ProfileImageUploader;

@@ -1,14 +1,15 @@
 import { ProfilePicture } from '../Profile/ProfilePicture';
 import profile_Icon from '../Assets/HeWillNeverLetYoudown.jpg';
+import PropTypes from 'prop-types';
 
-function Header() {
+function Header({ colour }) {
 
     const myName = "Noel Proctor";
     const profession = "Software Developer";
 
     return (
 
-        <header className='header' >
+        <header className='header' style={{ background: colour }}>
             <h1>{myName}</h1>
             <ProfilePicture></ProfilePicture>
 
@@ -27,5 +28,8 @@ function Header() {
 
     );
 }
+Header.propTypes = {
+    colour: PropTypes.string.isRequired
+};
 
-export default Header
+export default Header;

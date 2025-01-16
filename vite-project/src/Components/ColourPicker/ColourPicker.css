@@ -1,0 +1,42 @@
+.colour-box {
+    height: 40px;
+    width: 40px;
+    margin: 10px;
+    border-radius: 4px;
+    display: inline-block;
+    transition: transform 0.3s;
+    transition: box-shadow 0.2s;
+    overflow: auto;
+
+}
+
+.colour-strip {
+    height: 25%;
+    width: 100%;
+}
+
+.colour-box:hover {
+    transform: scale(3.0);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.colour-picker-container {
+
+    text-align: center;
+    padding: 10px;
+    min-height: 10vh;
+}
+
+.colour-pallette {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+
+.custom-colour-picker {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
