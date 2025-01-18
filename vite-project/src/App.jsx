@@ -8,6 +8,7 @@ import ProjectList from './Components/Projects/ProjectList'
 import ProfileImageUploader from './Components/Profile/ProfileImageUploader'
 import Form from './Components/Form/Form'
 import ColourPicker from './Components/ColourPicker/ColourPicker'
+import Clock from './Components/Clock/Clock'
 
 
 function App() {
@@ -17,13 +18,11 @@ function App() {
   return (
     <div className='App'>
       {/* Header Section */}
-      <Header colour={colourScheme[0]}></Header>
+      <Header colour={colourScheme[0]} setColourScheme={setColourScheme}></Header>
       {/* About section */}
       <About colour={colourScheme[1]}></About>
-      <ColourPicker setColourScheme={setColourScheme}></ColourPicker>
       {/* Projects section */}
       <ProjectList colour={colourScheme[2]}></ProjectList>
-      <ProfileImageUploader colour={colourScheme[2]}></ProfileImageUploader>
       <Form></Form>
       {/* Contact section */}
       <ContactMe colour={colourScheme[3]}></ContactMe>

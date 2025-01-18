@@ -28,8 +28,7 @@ function ProfileImageUploader({ colour }) {
     const dropzoneStyle = {
         width: '200px',
         height: '200px',
-        border: '2px dashed #cccccc',
-        borderRadius: '50px',
+        borderRadius: '50pc',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',

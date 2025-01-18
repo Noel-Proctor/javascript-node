@@ -1,25 +1,21 @@
 import { ProfilePicture } from '../Profile/ProfilePicture';
 import profile_Icon from '../Assets/HeWillNeverLetYoudown.jpg';
 import PropTypes from 'prop-types';
+import Clock from '../Clock/Clock';
+import ColourPicker from '../ColourPicker/ColourPicker';
 
-function Header({ colour }) {
 
-    const myName = "Noel Proctor";
-    const profession = "Software Developer";
+function Header({ colour, setColourScheme }) {
 
     return (
 
         <header className='header' style={{ background: colour }}>
-            <h1>{myName}</h1>
-            <ProfilePicture></ProfilePicture>
-
-            <img src={profile_Icon}></img>
-            <h1>TEST</h1>
-            <h2>{profession}</h2>
             <nav>
                 <a href="about">About</a>
                 <a href="projects">Projects</a>
                 <a href="contact">Contact</a>
+                <Clock></Clock>
+                <ColourPicker setColourScheme={setColourScheme}></ColourPicker>
             </nav>
         </header>
 
@@ -29,7 +25,8 @@ function Header({ colour }) {
     );
 }
 Header.propTypes = {
-    colour: PropTypes.string.isRequired
+    colour: PropTypes.string.isRequired,
+    setColourScheme: PropTypes.func.isRequired
 };
 
 export default Header;

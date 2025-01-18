@@ -1,0 +1,31 @@
+.clock-container {
+
+    display: flex;
+    justify-content: center;
+    /* Centering within the nav bar */
+    align-items: center;
+    /* Centering the text vertically */
+    height: 3vh;
+    /* 3% of the viewport height */
+    max-width: 10vh;
+    min-width: 50px;
+    /* Minimum width to ensure readability */
+    padding: 5px;
+    background-color: #282c34;
+    border-radius: 10px;
+
+}
+
+.time-container {
+    font-size: 2vh;
+    /* Font size as a percentage of viewport height */
+    line-height: 1;
+    /* Maintain simple line-height */
+    color: #61dafb;
+    /* White text for contrast */
+    background-color: #333;
+    /* Dark background to pop in nav bar */
+    padding: 5px;
+    border-radius: 5px;
+    /* Rounded corners */
+}
