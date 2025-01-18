@@ -1,4 +1,8 @@
 import './ColourPicker.css';
+import { useState } from 'react';
+import { IoIosColorFill } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
+
 
 
 // eslint-disable-next-line react/prop-types
@@ -15,26 +19,51 @@ function ColourPicker({ setColourScheme }) {
         setColourScheme(colorScheme);
     }
 
+    const [showColourPicker, setShowColourPicker] = useState(false);
+
+    const toggleColourPicker = () => {
+        setShowColourPicker(!showColourPicker);
+    }
+
+
+
     return (
 
         <div className='colour-picker-container'>
-            <h1>Color Picker</h1>
-            <div className='color-pallete'>
-                {[...colourSchemes].map((colorScheme, index) => (
-                    <div
-                        key={index}
-                        className='colour-box'
-                        onClick={() => handleColourChange(colorScheme)}>
-                        {[...colorScheme].map((color, index) => (
-                            <div
-                                key={index}
-                                className='colour-strip'
-                                style={{ backgroundColor: color }}>
-                            </div>))
-                        }
+
+            <IoIosColorFill onClick={toggleColourPicker} className='icon' />
+
+
+            {showColourPicker && (
+
+                <div className='popup-overlay'>
+                    <div className='popup'>
+
+
+                        <div className="popup-title">
+                            <IoClose onClick={toggleColourPicker} className='icon' />
+                        </div>
+
+
+                        <div className='color-pallete'>
+                            {[...colourSchemes].map((colorScheme, index) => (
+                                <div
+                                    key={index}
+                                    className='colour-box'
+                                    onClick={() => handleColourChange(colorScheme)}>
+                                    {[...colorScheme].map((color, index) => (
+                                        <div
+                                            key={index}
+                                            className='colour-strip'
+                                            style={{ backgroundColor: color }}>
+                                        </div>))
+                                    }
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                ))}
-            </div>
+                </div>
+            )}
         </div>
     );
 }

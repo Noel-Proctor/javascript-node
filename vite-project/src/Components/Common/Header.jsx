@@ -1,5 +1,3 @@
-import { ProfilePicture } from '../Profile/ProfilePicture';
-import profile_Icon from '../Assets/HeWillNeverLetYoudown.jpg';
 import PropTypes from 'prop-types';
 import Clock from '../Clock/Clock';
 import ColourPicker from '../ColourPicker/ColourPicker';
@@ -14,7 +12,7 @@ function Header({ colour, setColourScheme }) {
                 <a href="about">About</a>
                 <a href="projects">Projects</a>
                 <a href="contact">Contact</a>
-                <Clock></Clock>
+                <Clock colour={colour}></Clock>
                 <ColourPicker setColourScheme={setColourScheme}></ColourPicker>
             </nav>
         </header>

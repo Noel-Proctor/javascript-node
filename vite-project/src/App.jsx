@@ -5,11 +5,7 @@ import ContactMe from './Components/ContactMe/ContactMe'
 import Footer from './Components/Common/Footer'
 import About from './Components/About/About'
 import ProjectList from './Components/Projects/ProjectList'
-import ProfileImageUploader from './Components/Profile/ProfileImageUploader'
 import Form from './Components/Form/Form'
-import ColourPicker from './Components/ColourPicker/ColourPicker'
-import Clock from './Components/Clock/Clock'
-
 
 function App() {
 
@@ -30,7 +26,7 @@ function App() {
       <Footer colour={colourScheme[0]}></Footer>
     </div>
 
-  );
+  )
 }
 
 export default App
