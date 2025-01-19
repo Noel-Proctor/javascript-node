@@ -1,38 +1,70 @@
-import { useState } from 'react';
 import './ColourPicker.css';
+import { useState } from 'react';
+import { IoIosColorFill } from "react-icons/io";
+import { IoClose } from "react-icons/io5";
 
-function ColourPicker() {
 
-    const [color, setColour] = useState("ff0000");
 
-    const colors = ['#ff0000', '#474E93', '#72BAA9', '#D5E7B5'];
+// eslint-disable-next-line react/prop-types
+function ColourPicker({ setColourScheme }) {
 
-    const handleColourChange = (color) => {
-        setColour(color);
+    const colourSchemes = [
+        ['#FF8000', '#4C1F7A', '#219B9D', '#EEEEEE'],
+        ['#E88D67', '#F3F7EC', '#006989', '#005C78'],
+        ['#FCC737', '#F26B0F', '#E73879', '#7E1891'],
+        ['#7C444F', '#9F5255', '#E16A54', '#F39E60']
+    ];
+
+    const handleColourChange = (colorScheme) => {
+        setColourScheme(colorScheme);
     }
+
+    const [showColourPicker, setShowColourPicker] = useState(false);
+
+    const toggleColourPicker = () => {
+        setShowColourPicker(!showColourPicker);
+    }
+
+
 
     return (
 
         <div className='colour-picker-container'>
-            <h1>Color Picker</h1>
-            <div className="color-pallete" style={{ backgroundColor: color }}>
-                {colors.map((color, index) => (
-                    <div
-                        key={index}
-                        className="color-box"
-                        style={{ backgroundColor: color }}
-                        onClick={() => setColour(color)}
-                    ></div>
-                ))}
-            </div>
 
-            <div className='Custom-colour-picker'>
-                <input type="color"
-                    value={color}
-                    onChange={(e) => handleColourChange(e.target.value)} />
-            </div>
+            <IoIosColorFill onClick={toggleColourPicker} className='icon' />
+
+
+            {showColourPicker && (
+
+                <div className='popup-overlay'>
+                    <div className='popup'>
+
+
+                        <div className="popup-title">
+                            <IoClose onClick={toggleColourPicker} className='icon' />
+                        </div>
+
+
+                        <div className='color-pallete'>
+                            {[...colourSchemes].map((colorScheme, index) => (
+                                <div
+                                    key={index}
+                                    className='colour-box'
+                                    onClick={() => handleColourChange(colorScheme)}>
+                                    {[...colorScheme].map((color, index) => (
+                                        <div
+                                            key={index}
+                                            className='colour-strip'
+                                            style={{ backgroundColor: color }}>
+                                        </div>))
+                                    }
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            )}
         </div>
-
     );
 }
 

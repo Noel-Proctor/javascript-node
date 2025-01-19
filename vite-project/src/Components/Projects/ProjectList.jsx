@@ -1,7 +1,12 @@
-import PropTypes from 'prop-types';
+
+import { ThemeContext } from '../../context/context';
+import { useContext } from 'react';
 
 
-function ProjectsList({ colour }) {
+function ProjectsList() {
+
+    const Theme = useContext(ThemeContext);
+    const colour = Theme[2];
 
     const projects = [
         {
@@ -37,9 +42,5 @@ function ProjectsList({ colour }) {
     )
 
 };
-
-ProjectsList.propTypes = {
-    colour: PropTypes.string.isRequired
-}
 
 export default ProjectsList

@@ -1,8 +1,5 @@
-
 import './ProfilePicture.css'
 import PropTypes from 'prop-types'
-import default_image from '../Assets/defaultProfileImage.jpg'
-
 
 export const ProfilePicture = ({ src, alt, size }) => {
   return (
@@ -19,11 +16,11 @@ ProfilePicture.propTypes = {
 
 };
 
-ProfilePicture.defaultProps = {
-  alt: 'Profile Picture test',
-  size: '100px',
-  src: default_image
-};
+// ProfilePicture.defaultProps = {
+//   alt: 'Profile Picture test',
+//   size: '100px',
+//   src: default_image
+// };
 
 
 

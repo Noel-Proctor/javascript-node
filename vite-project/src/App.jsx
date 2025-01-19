@@ -6,27 +6,41 @@ import Footer from './Components/Common/Footer'
 import About from './Components/About/About'
 import ProjectList from './Components/Projects/ProjectList'
 import Form from './Components/Form/Form'
+import APIGetExample from './Components/APIRequestExamples/APIGetExample'
+import APIPostExample from './Components/APIRequestExamples/APIPostExample'
+import { ThemeContext } from './context/context'
+
+
 
 function App() {
+
 
   const [colourScheme, setColourScheme] = useState(['#FF8000', '#4C1F7A', '#219B9D', '#EEEEEE']);
 
   return (
     <div className='App'>
-      {/* Header Section */}
-      <Header colour={colourScheme[0]} setColourScheme={setColourScheme}></Header>
-      {/* About section */}
-      <About colour={colourScheme[1]}></About>
-      {/* Projects section */}
-      <ProjectList colour={colourScheme[2]}></ProjectList>
-      <Form></Form>
-      {/* Contact section */}
-      <ContactMe colour={colourScheme[3]}></ContactMe>
-      {/* Footer Section */}
-      <Footer colour={colourScheme[0]}></Footer>
+
+      <ThemeContext.Provider value={colourScheme} setColourScheme={setColourScheme}>
+        {/* Header Section */}
+        <Header setColourScheme={setColourScheme}></Header>
+        {/* About section */}
+        <About></About>
+        <APIPostExample></APIPostExample>
+        <APIGetExample></APIGetExample>
+        {/* Projects section */}
+        <ProjectList></ProjectList>
+        <Form></Form>
+        {/* Contact section */}
+        <ContactMe></ContactMe>
+        {/* Footer Section */}
+        <Footer></Footer>
+      </ThemeContext.Provider>
+
     </div>
+
 
   )
 }
+
 
 export default App

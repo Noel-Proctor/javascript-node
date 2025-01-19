@@ -1,7 +1,10 @@
+import { ThemeContext } from '../../context/context';
+import { useContext } from 'react';
 
-import PropTypes from 'prop-types';
+function Footer() {
 
-function Footer({ colour }) {
+    const theme = useContext(ThemeContext);
+    const colour = theme[0];
     return (
 
         <footer className="footer" style={{ background: colour }}>
@@ -11,9 +14,5 @@ function Footer({ colour }) {
 
     );
 }
-
-Footer.propTypes = {
-    colour: PropTypes.string.isRequired,
-};
 
 export default Footer;

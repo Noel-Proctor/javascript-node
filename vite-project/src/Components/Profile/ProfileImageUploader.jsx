@@ -1,12 +1,14 @@
-import { useState, useCallback } from "react";
-import PropTypes from 'prop-types';
+import { useState, useCallback, useContext } from "react";
 import { useDropzone } from 'react-dropzone'
 import { ProfilePicture } from "./ProfilePicture";
 import default_image from '../Assets/defaultProfileImage.jpg'
+import { ThemeContext } from "../../context/context";
 
-function ProfileImageUploader({ colour }) {
+function ProfileImageUploader() {
 
     const [imageUrl, setImageUrl] = useState(null);
+    const theme = useContext(ThemeContext);
+    const colour = theme[1];
 
 
     const onDrop = useCallback((acceptedFile) => {
@@ -51,9 +53,5 @@ function ProfileImageUploader({ colour }) {
 
     )
 }
-
-ProfileImageUploader.propTypes = {
-    colour: PropTypes.string.isRequired,
-};
 
 export default ProfileImageUploader;

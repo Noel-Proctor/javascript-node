@@ -1,9 +1,14 @@
-import PropTypes from 'prop-types';
 import ProfileImageUploader from '../Profile/ProfileImageUploader';
 import './About.css';
-function About({ colour }) {
-    return (
+import { ThemeContext } from '../../context/context';
+import { useContext } from 'react';
 
+function About() {
+
+    const Theme = useContext(ThemeContext);
+    const colour = Theme[1];
+
+    return (
         <section id='about' className='about-section' style={{ background: colour }}>
             <h2>About Me</h2>
 
@@ -18,10 +23,6 @@ function About({ colour }) {
         </section>
 
     );
-}
-
-About.propTypes = {
-    colour: PropTypes.string.isRequired
 }
 
 export default About
